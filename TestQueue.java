@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.que;
 
 /**
- *
+ *compile javac -d . TestQueue.java
+* run  java com.que/TestQueue
+
  * @author Shritesh
  */
+import java.util.Scanner;
 class Node {
     int data;
     Node link;
@@ -66,6 +65,10 @@ class Queue {
         
     }
     void Dequee() {
+	if(front==null) {
+		System.out.println("queue is empty");
+		return;
+	}
         front=front.link;
         size--;
     }
@@ -74,14 +77,37 @@ class Queue {
 public class TestQueue {
     public static void main(String[] args) {
         Queue q=new Queue();
-        q.display();
+	Scanner sc=new Scanner(System.in);
+       /* q.display();
         q.Enqueue(5);
         q.Enqueue(6);
         q.Enqueue(8);
         q.display();
         q.Dequee();
         q.display();
+*/
+	while(true) {
+	System.out.println("\n1.Enqueue\n2.Dequeue\n3.display\n4.exit\n");	
+	switch(sc.nextInt()) 
+	{
+	
+	case 1:	System.out.print("Enter the value:");
+		q.Enqueue(sc.nextInt());	
+		break;
+	case 2:	q.Dequee();
+		break;
+	case 3:	q.display();
+		break;
+	case 4:	System.exit(0);
+		break;
+	default:
+		System.out.println("Inavalid choice");
+		break;
+
+	}
+
             
     }
     
+}
 }

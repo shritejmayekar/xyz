@@ -1,10 +1,12 @@
 
 package corejava;
 
-/**
- *
+/**compile javac -d .  myTestStack.java
+
+ *run java corejava/myTestStack
  * @author Shritej
  */
+import java.util.Scanner;
 class newNode
 {
     int data;
@@ -47,7 +49,11 @@ class myyStack {
     
     }
 	/* stack pop operation */
-    public void pop() {
+    public void pop() {	
+	if(top==null) {
+		System.out.println("underflow");
+		return;
+	}
         top=top.link;
         size--;
         return;
@@ -83,7 +89,7 @@ class myyStack {
 public class myTestStack {
     public static void main(String[] args) {
        myyStack st=new myyStack();
-       st.display();
+       /*st.display();
        st.push(5);
        st.push(6);
        st.push(7);
@@ -91,6 +97,31 @@ public class myTestStack {
        st.display();
        st.pop();
        st.display();
+*/
+	Scanner sc=new Scanner(System.in);
+        while(true) {
+            System.out.println("1.Push"
+                    + "\n2.Pop"
+                    + "\n3.Display"
+                     + "\n4.Exit\n");
+            switch(sc.nextInt()) {
+                case 1: System.out.print("Enter value:");
+                       	st.push(sc.nextInt());
+                        break;
+                case 2: 
+                        st.pop();
+                        break;
+                
+                case 3: st.display();
+                        break;
+              
+                case 4: System.exit(0);
+                
+                default: System.out.println("Invalid choice");
+                         break;
+            }
+	}
+	}
             
-    }
+    
 }
